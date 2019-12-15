@@ -28,10 +28,20 @@ users1 =
   , User "Albert Einstein" 136 "ae@mc2.org"         (fromGregorian 1905 12 1)
   ]
 
+isaac :: User
+isaac = users1 !! 0
+
+albert :: User
+albert = users1 !! 1
+
 type UserAPI1 = "users" :> Get '[JSON] [User]
+           :<|> "albert" :> Get '[JSON] User
+           :<|> "isaac" :> Get '[JSON] User
 
 server1 :: Server UserAPI1
 server1 = return users1
+     :<|> return albert
+     :<|> return isaac
 
 userAPI :: Proxy UserAPI1
 userAPI = Proxy
