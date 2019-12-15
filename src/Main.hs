@@ -34,9 +34,9 @@ isaac = users1 !! 0
 albert :: User
 albert = users1 !! 1
 
-type UserAPI1 = "users" :> Get '[JSON] [User]
+type UserAPI1 = "users"  :> Get '[JSON] [User]
            :<|> "albert" :> Get '[JSON] User
-           :<|> "isaac" :> Get '[JSON] User
+           :<|> "isaac"  :> Get '[JSON] User
 
 server1 :: Server UserAPI1
 server1 = return users1
