@@ -40,4 +40,7 @@ app1 :: Application
 app1 = serve userAPI server1
 
 main :: IO ()
-main = run 8081 app1
+main = do
+  let portNum = 8081
+  putStrLn $ "Now running on " ++ (show portNum)
+  run portNum app1
