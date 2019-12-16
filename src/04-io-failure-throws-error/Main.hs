@@ -8,7 +8,7 @@ import Data.Aeson (ToJSON)
 import GHC.Generics (Generic)
 import Network.Wai.Handler.Warp (run)
 import Servant
-import System.Directory
+import System.Directory (doesFileExist)
 
 type API = "myfile.txt" :> Get '[JSON] FileContent
 
