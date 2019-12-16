@@ -4,7 +4,7 @@
 
 import Data.Aeson (ToJSON, FromJSON)
 import Data.List (intercalate)
-import Network.Wai.Handler.Warp
+import Network.Wai.Handler.Warp (run)
 import GHC.Generics (Generic)
 import Servant
 
