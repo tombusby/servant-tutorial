@@ -5,6 +5,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE TypeOperators #-}
 
+import Control.Monad.IO.Class (liftIO)
 import Data.Aeson (ToJSON)
 import GHC.Generics (Generic)
 import Network.HTTP.Media ((//), (/:))
@@ -62,7 +63,9 @@ api :: Proxy PersonAPI
 api = Proxy
 
 server :: Server PersonAPI
-server = return people
+server = do
+  liftIO $ putStrLn "We can do IO in handlers"
+  return people
 
 app :: Application
 app = serve api server
